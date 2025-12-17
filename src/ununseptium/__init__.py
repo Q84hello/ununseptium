@@ -13,6 +13,8 @@ __author__ = "Olaf Laitinen"
 __email__ = "olaf.laitinen@protonmail.com"
 
 # Import submodules (cli is imported lazily to avoid circular import)
+from typing import TYPE_CHECKING
+
 from ununseptium import ai, aml, core, kyc, mathstats, model_zoo, plugins, security
 from ununseptium.core.config import Settings, load_config
 from ununseptium.core.errors import (
@@ -32,6 +34,10 @@ def __getattr__(name: str) -> object:
 
         return _cli
     raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+
+
+if TYPE_CHECKING:
+    from ununseptium import cli
 
 
 __all__ = [

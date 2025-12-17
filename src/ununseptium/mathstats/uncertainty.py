@@ -5,6 +5,7 @@ Provides coverage-guaranteed prediction sets and calibration metrics.
 
 from __future__ import annotations
 
+from collections.abc import Iterable
 from typing import Any
 
 import numpy as np
@@ -127,7 +128,7 @@ class ConformalPredictor:
             msg = "Predictor not calibrated. Call calibrate() first."
             raise ValueError(msg)
 
-        if isinstance(y_pred, np.ndarray):
+        if isinstance(y_pred, Iterable):
             return [
                 PredictionSet(
                     point_estimate=float(p),
