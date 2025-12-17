@@ -1,0 +1,288 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ununseptium"
+version = "1.0.0"
+description = "State-of-the-art RegTech and Cybersecurity Python library for KYC/AML automation, data security, and AI-driven risk analysis"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "Olaf Laitinen", email = "olaf.laitinen@protonmail.com"}
+]
+maintainers = [
+    {name = "Olaf Laitinen", email = "olaf.laitinen@protonmail.com"}
+]
+keywords = [
+    "kyc",
+    "aml",
+    "regtech",
+    "compliance",
+    "cybersecurity",
+    "risk-management",
+    "machine-learning",
+    "fraud-detection",
+    "pii",
+    "audit",
+    "pinn",
+    "neural-ode",
+    "conformal-prediction"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Security",
+    "Topic :: Office/Business :: Financial",
+    "Typing :: Typed"
+]
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.0,<3.0",
+    "pydantic-settings>=2.0,<3.0",
+    "numpy>=1.24,<3.0",
+    "scipy>=1.11,<2.0",
+    "click>=8.0,<9.0",
+    "rich>=13.0,<14.0",
+    "structlog>=23.0,<25.0",
+    "httpx>=0.25,<1.0",
+    "tenacity>=8.0,<10.0",
+    "filelock>=3.12,<4.0"
+]
+
+[project.optional-dependencies]
+crypto = [
+    "cryptography>=41.0,<44.0"
+]
+ai-torch = [
+    "torch>=2.0,<3.0"
+]
+ai-prob = [
+    "pymc>=5.0,<6.0"
+]
+ai-jax = [
+    "jax>=0.4,<1.0",
+    "jaxlib>=0.4,<1.0"
+]
+perf = [
+    "numba>=0.58,<1.0"
+]
+graph = [
+    "networkx>=3.0,<4.0"
+]
+graph-torch = [
+    "torch-geometric>=2.4,<3.0"
+]
+docs = [
+    "mkdocs>=1.5,<2.0",
+    "mkdocs-material>=9.0,<10.0",
+    "mkdocstrings[python]>=0.24,<1.0"
+]
+dev = [
+    "pytest>=7.4,<9.0",
+    "pytest-cov>=4.0,<6.0",
+    "pytest-asyncio>=0.21,<1.0",
+    "pytest-benchmark>=4.0,<5.0",
+    "hypothesis>=6.80,<7.0",
+    "ruff>=0.1,<1.0",
+    "pyright>=1.1.340,<2.0",
+    "pip-audit>=2.6,<3.0",
+    "bandit>=1.7,<2.0",
+    "pre-commit>=3.5,<4.0",
+    "build>=1.0,<2.0",
+    "twine>=4.0,<6.0"
+]
+all = [
+    "ununseptium[crypto,ai-torch,perf,graph,docs,dev]"
+]
+
+[project.urls]
+Homepage = "https://github.com/olaflaitinen/ununseptium"
+Documentation = "https://github.com/olaflaitinen/ununseptium#readme"
+Repository = "https://github.com/olaflaitinen/ununseptium.git"
+Issues = "https://github.com/olaflaitinen/ununseptium/issues"
+Changelog = "https://github.com/olaflaitinen/ununseptium/blob/main/CHANGELOG.md"
+
+[project.scripts]
+ununseptium = "ununseptium.cli.main:cli"
+
+[project.entry-points."ununseptium.plugins"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+ununseptium = ["py.typed", "model_zoo/*.json"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # Pyflakes
+    "I",      # isort
+    "B",      # flake8-bugbear
+    "C4",     # flake8-comprehensions
+    "UP",     # pyupgrade
+    "ARG",    # flake8-unused-arguments
+    "SIM",    # flake8-simplify
+    "TCH",    # flake8-type-checking
+    "PTH",    # flake8-use-pathlib
+    "ERA",    # eradicate
+    "RUF",    # Ruff-specific
+    "S",      # flake8-bandit
+    "N",      # pep8-naming
+    "D",      # pydocstring
+    "ANN",    # flake8-annotations
+    "ASYNC",  # flake8-async
+    "FBT",    # flake8-boolean-trap
+    "A",      # flake8-builtins
+    "COM",    # flake8-commas
+    "DTZ",    # flake8-datetimez
+    "T10",    # flake8-debugger
+    "EXE",    # flake8-executable
+    "ISC",    # flake8-implicit-str-concat
+    "ICN",    # flake8-import-conventions
+    "G",      # flake8-logging-format
+    "INP",    # flake8-no-pep420
+    "PIE",    # flake8-pie
+    "T20",    # flake8-print
+    "PYI",    # flake8-pyi
+    "RSE",    # flake8-raise
+    "RET",    # flake8-return
+    "SLF",    # flake8-self
+    "SLOT",   # flake8-slots
+    "TID",    # flake8-tidy-imports
+    "INT",    # flake8-gettext
+    "PL",     # Pylint
+    "TRY",    # tryceratops
+    "FLY",    # flynt
+    "PERF",   # Perflint
+    "FURB",   # refurb
+    "LOG",    # flake8-logging
+]
+ignore = [
+    "D100",    # Missing docstring in public module
+    "D104",    # Missing docstring in public package
+    "D203",    # 1 blank line required before class docstring
+    "D213",    # Multi-line docstring summary should start at the second line
+    "ANN101",  # Missing type annotation for self
+    "ANN102",  # Missing type annotation for cls
+    "ANN401",  # Dynamically typed expressions (typing.Any)
+    "COM812",  # Trailing comma missing
+    "ISC001",  # Implicitly concatenated string literals
+    "S101",    # Use of assert detected
+    "PLR0913", # Too many arguments
+    "TRY003",  # Avoid specifying long messages in exceptions
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101", "D", "ANN", "PLR2004", "ARG"]
+"benchmarks/**/*.py" = ["S101", "D", "ANN", "T20"]
+"scripts/**/*.py" = ["T20", "D", "ANN", "INP001"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.isort]
+known-first-party = ["ununseptium"]
+
+[tool.pyright]
+include = ["src"]
+exclude = ["**/__pycache__", "build", "dist", ".venv"]
+pythonVersion = "3.11"
+pythonPlatform = "All"
+typeCheckingMode = "strict"
+reportMissingImports = true
+reportMissingTypeStubs = false
+reportUnusedImport = true
+reportUnusedClass = true
+reportUnusedFunction = true
+reportUnusedVariable = true
+reportDuplicateImport = true
+reportPrivateUsage = true
+reportConstantRedefinition = true
+reportIncompatibleMethodOverride = true
+reportIncompatibleVariableOverride = true
+reportInconsistentConstructor = true
+reportOverlappingOverload = true
+reportUninitializedInstanceVariable = true
+reportCallInDefaultInitializer = true
+reportUnnecessaryIsInstance = true
+reportUnnecessaryCast = true
+reportUnnecessaryComparison = true
+reportUnnecessaryContains = true
+reportAssertAlwaysTrue = true
+reportSelfClsParameterName = true
+reportImplicitStringConcatenation = false
+reportUnusedCallResult = false
+reportUnknownParameterType = false
+reportUnknownArgumentType = false
+reportUnknownLambdaType = false
+reportUnknownVariableType = false
+reportUnknownMemberType = false
+reportMissingParameterType = false
+reportMissingTypeArgument = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = [
+    "-v",
+    "--strict-markers",
+    "--strict-config",
+    "-ra",
+    "--tb=short"
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "benchmark: marks tests as benchmark tests"
+]
+filterwarnings = [
+    "error",
+    "ignore::DeprecationWarning:hypothesis.*",
+    "ignore::PendingDeprecationWarning"
+]
+
+[tool.coverage.run]
+source = ["src/ununseptium"]
+branch = true
+parallel = true
+omit = [
+    "*/tests/*",
+    "*/__pycache__/*"
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if TYPE_CHECKING:",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "@abstractmethod",
+    "@abc.abstractmethod"
+]
+fail_under = 80
+show_missing = true
+
+[tool.coverage.html]
+directory = "htmlcov"
+
+[tool.bandit]
+exclude_dirs = ["tests", "benchmarks"]
+skips = ["B101"]  # assert_used

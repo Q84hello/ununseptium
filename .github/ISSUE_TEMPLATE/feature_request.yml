@@ -1,0 +1,118 @@
+name: Feature Request
+description: Suggest a new feature or enhancement for ununseptium
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a feature. Please describe your idea in detail.
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: Which component would this feature affect?
+      options:
+        - KYC (Identity Verification)
+        - AML (Transaction Monitoring)
+        - Security (PII, Encryption, Audit)
+        - MathStats (Conformal, EVT, Hawkes)
+        - AI (Models, Features, Explainability)
+        - CLI
+        - Core
+        - Documentation
+        - New Component
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Feature Type
+      description: What type of feature is this?
+      options:
+        - New functionality
+        - Performance improvement
+        - Developer experience
+        - Documentation
+        - Testing
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: Describe the problem this feature would solve.
+      placeholder: I want to be able to...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe your proposed solution.
+      placeholder: The feature should...
+    validations:
+      required: true
+
+  - type: textarea
+    id: api
+    attributes:
+      label: Proposed API (if applicable)
+      description: If this involves API changes, provide an example of the proposed interface.
+      render: python
+      placeholder: |
+        # Example of proposed API
+        from ununseptium import NewFeature
+
+        result = NewFeature.do_something(input)
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Describe any alternative solutions you have considered.
+      placeholder: Other approaches considered...
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this feature to you?
+      options:
+        - Nice to have
+        - Important
+        - Critical for my use case
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Add any other context, mockups, or references.
+      placeholder: Additional information...
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Would you be willing to contribute to this feature?
+      options:
+        - label: I am willing to submit a pull request for this feature.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      description: Please confirm the following
+      options:
+        - label: I have searched existing issues to ensure this feature has not been requested before.
+          required: true
+        - label: This feature aligns with the project scope (RegTech/Cybersecurity).
+          required: true

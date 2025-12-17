@@ -1,0 +1,208 @@
+# Ununseptium Repository Manifest
+# Defines all required paths, workflows, docs, and quality rules
+
+metadata:
+  repo: https://github.com/olaflaitinen/ununseptium
+  branch: main
+  version: "1.0"
+
+# Required root files (community health + governance)
+required_root_files:
+  - README.md
+  - LICENSE
+  - SECURITY.md
+  - CONTRIBUTING.md
+  - CODE_OF_CONDUCT.md
+  - GOVERNANCE.md
+  - SUPPORT.md
+  - CHANGELOG.md
+  - PRIVACY.md
+  - COMPLIANCE.md
+  - CITATION.md
+  - ROADMAP.md
+  - pyproject.toml
+
+# GitHub templates
+required_github_templates:
+  - .github/ISSUE_TEMPLATE/bug_report.yml
+  - .github/ISSUE_TEMPLATE/feature_request.yml
+  - .github/PULL_REQUEST_TEMPLATE.md
+
+# GitHub workflows (must match badge URLs)
+required_workflows:
+  - name: ci
+    path: .github/workflows/ci.yml
+    badge: true
+  - name: docs-quality
+    path: .github/workflows/docs-quality.yml
+    badge: true
+  - name: security
+    path: .github/workflows/security.yml
+    badge: true
+  - name: build
+    path: .github/workflows/build.yml
+    badge: true
+  - name: release
+    path: .github/workflows/release.yml
+    badge: false
+  - name: publish
+    path: .github/workflows/publish.yml
+    badge: false
+  - name: codeql
+    path: .github/workflows/codeql.yml
+    badge: true
+  - name: scorecard
+    path: .github/workflows/scorecard.yml
+    badge: true
+  - name: sbom
+    path: .github/workflows/sbom.yml
+    badge: false
+  - name: provenance
+    path: .github/workflows/provenance.yml
+    badge: false
+
+# Documentation structure
+required_docs:
+  # Core docs
+  - docs/index.md
+  - docs/toc.md
+  - docs/glossary.md
+  - docs/faq.md
+  - docs/references.md
+  # Architecture
+  - docs/architecture/overview.md
+  - docs/architecture/data-flow.md
+  - docs/architecture/plugin-architecture.md
+  - docs/architecture/ai-pipeline.md
+  # KYC
+  - docs/kyc/kyc-overview.md
+  # AML
+  - docs/aml/aml-overview.md
+  # Security
+  - docs/security/security-overview.md
+  - docs/security/threat-model.md
+  - docs/security/auditability.md
+  - docs/security/crypto-and-key-management.md
+  # MathStats
+  - docs/mathstats/mathstats-overview.md
+  - docs/mathstats/uncertainty.md
+  - docs/mathstats/sequential.md
+  - docs/mathstats/evt.md
+  - docs/mathstats/hawkes.md
+  - docs/mathstats/graph-features.md
+  # AI
+  - docs/ai/ai-overview.md
+  - docs/ai/sciml.md
+  - docs/ai/governance.md
+  # Model Zoo
+  - docs/model-zoo/model-zoo.md
+  # Performance
+  - docs/performance/performance.md
+  # Legal
+  - docs/legal/legal-notices.md
+  # Figures
+  - docs/figures/README.md
+
+# Required scripts
+required_scripts:
+  - scripts/docs_lint.py
+  - scripts/generate_figures.py
+  - scripts/repo_audit.py
+  - scripts/link_check.py
+  - scripts/verify_badges.py
+
+# Python library structure
+required_python:
+  - src/ununseptium/__init__.py
+  - src/ununseptium/cli/main.py
+
+# Quality rules for documentation
+doc_quality_rules:
+  no_emojis: true
+  required_sections:
+    major_docs:
+      - Scope
+      - Definitions
+      - References
+  mermaid_required:
+    - docs/architecture/overview.md
+    - docs/architecture/data-flow.md
+    - docs/architecture/plugin-architecture.md
+    - docs/architecture/ai-pipeline.md
+  latex_required:
+    - docs/mathstats/uncertainty.md
+    - docs/mathstats/evt.md
+    - docs/mathstats/hawkes.md
+    - docs/mathstats/graph-features.md
+  tables_required: true
+
+# Badge definitions (20+)
+required_badges:
+  # CI/CD
+  - name: CI
+    url: https://github.com/olaflaitinen/ununseptium/actions/workflows/ci.yml/badge.svg
+    workflow: ci.yml
+  - name: Docs Quality
+    url: https://github.com/olaflaitinen/ununseptium/actions/workflows/docs-quality.yml/badge.svg
+    workflow: docs-quality.yml
+  - name: Security
+    url: https://github.com/olaflaitinen/ununseptium/actions/workflows/security.yml/badge.svg
+    workflow: security.yml
+  - name: Build
+    url: https://github.com/olaflaitinen/ununseptium/actions/workflows/build.yml/badge.svg
+    workflow: build.yml
+  - name: CodeQL
+    url: https://github.com/olaflaitinen/ununseptium/actions/workflows/codeql.yml/badge.svg
+    workflow: codeql.yml
+  - name: Scorecard
+    url: https://github.com/olaflaitinen/ununseptium/actions/workflows/scorecard.yml/badge.svg
+    workflow: scorecard.yml
+  # Package
+  - name: PyPI
+    url: https://img.shields.io/pypi/v/ununseptium
+    type: external
+  - name: Python Version
+    url: https://img.shields.io/pypi/pyversions/ununseptium
+    type: external
+  - name: Downloads
+    url: https://img.shields.io/pypi/dm/ununseptium
+    type: external
+  # Quality
+  - name: Coverage
+    url: https://codecov.io/gh/olaflaitinen/ununseptium/branch/main/graph/badge.svg
+    type: external
+  - name: Code Style
+    url: https://img.shields.io/badge/code%20style-ruff-000000.svg
+    type: static
+  - name: Type Checked
+    url: https://img.shields.io/badge/type%20checked-pyright-blue.svg
+    type: static
+  # License and Standards
+  - name: License
+    url: https://img.shields.io/badge/license-Apache%202.0-blue.svg
+    type: static
+  - name: OpenSSF Best Practices
+    url: https://www.bestpractices.dev/projects/placeholder/badge
+    type: external
+  - name: SLSA
+    url: https://slsa.dev/images/gh-badge-level3.svg
+    type: external
+  # Python
+  - name: Python 3.11+
+    url: https://img.shields.io/badge/python-3.11%2B-blue.svg
+    type: static
+  # Security
+  - name: Security Policy
+    url: https://img.shields.io/badge/security-policy-green.svg
+    type: static
+  # Docs
+  - name: Documentation
+    url: https://img.shields.io/badge/docs-latest-brightgreen.svg
+    type: static
+  # Maintenance
+  - name: Maintained
+    url: https://img.shields.io/badge/maintained-yes-green.svg
+    type: static
+  - name: PRs Welcome
+    url: https://img.shields.io/badge/PRs-welcome-brightgreen.svg
+    type: static
