@@ -5,7 +5,7 @@ Provides model registry and metadata management.
 
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import UTC, datetime
 from enum import Enum
 from typing import Any
 
@@ -67,7 +67,7 @@ class ModelEntry(BaseModel):
     file_size_mb: float = 0.0
     download_url: str = ""
     checksum: str = ""
-    created_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
     tags: list[str] = Field(default_factory=list)
     metadata: dict[str, Any] = Field(default_factory=dict)
 

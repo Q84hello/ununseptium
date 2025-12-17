@@ -165,7 +165,7 @@ class PluginLoader:
         Args:
             registry: Plugin registry to use.
         """
-        self.registry = registry or PluginRegistry()
+        self.registry = registry if registry is not None else PluginRegistry()
 
     def load_file(self, path: Path | str) -> list[str]:
         """Load plugins from a Python file.

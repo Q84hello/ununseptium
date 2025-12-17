@@ -29,8 +29,10 @@ def __getattr__(name: str) -> object:
     """Lazy import for cli module."""
     if name == "cli":
         from ununseptium import cli as _cli
+
         return _cli
     raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+
 
 __all__ = [
     "IntegrityError",
@@ -53,4 +55,3 @@ __all__ = [
     "plugins",
     "security",
 ]
-

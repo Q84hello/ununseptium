@@ -34,7 +34,7 @@ class AuditEntry(BaseModel):
     """
 
     id: str = Field(default_factory=lambda: f"AUD-{uuid4().hex[:12].upper()}")
-    timestamp: datetime = Field(default_factory=datetime.utcnow)
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(UTC))
     action: str
     actor: str | None = None
     resource: str | None = None
@@ -266,6 +266,7 @@ class AuditLog:
             "algorithm": self._chain.algorithm,
             "entries": [e.model_dump(mode="json") for e in self._entries],
             "hashes": self._chain._hashes,
+            "chain_entries": self._chain._entries,
         }
 
         with path.open("w") as f:
@@ -293,15 +294,19 @@ class AuditLog:
             entry = AuditEntry.model_validate(entry_data)
             log._entries.append(entry)
 
-        log._chain._entries = [
-            {
-                "index": i,
-                "prev_hash": e.prev_hash,
-                "data": e.model_dump(mode="json"),
-                "timestamp": e.timestamp.isoformat(),
-            }
-            for i, e in enumerate(log._entries)
-        ]
+        if "chain_entries" in data:
+            log._chain._entries = data["chain_entries"]
+        else:
+            # Legacy fallback: reconstruct chain entries (may fail verification due to timestamps)
+            log._chain._entries = [
+                {
+                    "index": i,
+                    "prev_hash": e.prev_hash,
+                    "data": e.model_dump(mode="json"),
+                    "timestamp": e.timestamp.isoformat(),
+                }
+                for i, e in enumerate(log._entries)
+            ]
         log._chain._hashes = data.get("hashes", [])
 
         return log
