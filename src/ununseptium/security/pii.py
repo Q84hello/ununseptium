@@ -74,9 +74,7 @@ class PIIDetector:
     def __init__(self) -> None:
         """Initialize the detector with default patterns."""
         self._patterns: dict[PIIType, list[re.Pattern[str]]] = {
-            PIIType.EMAIL: [
-                re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b")
-            ],
+            PIIType.EMAIL: [re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b")],
             PIIType.PHONE: [
                 re.compile(r"\b\d{3}[-.]?\d{3}[-.]?\d{4}\b"),
                 re.compile(r"\+\d{1,3}[-.]?\d{1,4}[-.]?\d{1,4}[-.]?\d{1,9}\b"),

@@ -182,9 +182,7 @@ class SPRT:
         self.n += 1
 
         # Log-likelihood ratio for normal distributions
-        llr = ((self.mu1 - self.mu0) / (self.sigma**2)) * (
-            value - (self.mu0 + self.mu1) / 2
-        )
+        llr = ((self.mu1 - self.mu0) / (self.sigma**2)) * (value - (self.mu0 + self.mu1) / 2)
         self._log_ratio += llr
 
         if self._log_ratio >= self._log_b:

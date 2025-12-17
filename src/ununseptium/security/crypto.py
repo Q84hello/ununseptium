@@ -443,8 +443,4 @@ class KeyManager:
         Returns:
             List of key IDs.
         """
-        return [
-            k
-            for k, v in self._keys.items()
-            if not active_only or v.get("active", True)
-        ]
+        return [k for k, v in self._keys.items() if not active_only or v.get("active", True)]

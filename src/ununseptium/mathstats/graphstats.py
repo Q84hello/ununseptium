@@ -164,9 +164,7 @@ class GraphFeatures:
 
     def _clustering_coefficient(self, node_id: str) -> float:
         """Compute local clustering coefficient."""
-        neighbors = self._adjacency.get(node_id, set()) | self._reverse_adj.get(
-            node_id, set()
-        )
+        neighbors = self._adjacency.get(node_id, set()) | self._reverse_adj.get(node_id, set())
         k = len(neighbors)
 
         if k < 2:
@@ -193,9 +191,7 @@ class GraphFeatures:
         tol: float = 1e-6,
     ) -> dict[str, float]:
         """Compute PageRank scores."""
-        all_nodes = list(
-            set(self._adjacency.keys()) | set(self._reverse_adj.keys())
-        )
+        all_nodes = list(set(self._adjacency.keys()) | set(self._reverse_adj.keys()))
         n = len(all_nodes)
 
         if n == 0:

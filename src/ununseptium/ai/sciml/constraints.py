@@ -268,6 +268,7 @@ class ConservationConstraint(SoftConstraint):
             target_value: Target value for conservation.
             weight: Loss weight.
         """
+
         def constraint_fn(pred: np.ndarray, inputs: np.ndarray) -> float:
             return conserved_quantity(pred, inputs) - target_value
 

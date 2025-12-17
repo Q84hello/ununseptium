@@ -294,13 +294,15 @@ def compute_calibration_metrics(
             ece += (bin_size / len(y_true)) * gap
             mce = max(mce, gap)
 
-            reliability_data.append({
-                "bin": i,
-                "accuracy": float(bin_acc),
-                "confidence": float(bin_conf),
-                "count": int(bin_size),
-                "gap": float(gap),
-            })
+            reliability_data.append(
+                {
+                    "bin": i,
+                    "accuracy": float(bin_acc),
+                    "confidence": float(bin_conf),
+                    "count": int(bin_size),
+                    "gap": float(gap),
+                }
+            )
 
     return CalibrationMetrics(
         ece=float(ece),

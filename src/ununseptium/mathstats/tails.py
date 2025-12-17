@@ -202,14 +202,16 @@ class EVTAnalyzer:
         for q in quantiles:
             try:
                 fit = self.fit_gpd(data, threshold_quantile=q)
-                results.append({
-                    "quantile": float(q),
-                    "threshold": fit.threshold,
-                    "shape": fit.shape,
-                    "scale": fit.scale,
-                    "n_exceedances": fit.n_exceedances,
-                    "aic": fit.aic,
-                })
+                results.append(
+                    {
+                        "quantile": float(q),
+                        "threshold": fit.threshold,
+                        "shape": fit.shape,
+                        "scale": fit.scale,
+                        "n_exceedances": fit.n_exceedances,
+                        "aic": fit.aic,
+                    }
+                )
             except (ValueError, RuntimeError):
                 continue
 

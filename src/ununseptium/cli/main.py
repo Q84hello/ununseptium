@@ -117,8 +117,7 @@ def audit_verify(logfile: str) -> None:
         if is_valid:
             console.print(
                 Panel(
-                    f"[green]Audit log verified successfully[/green]\n"
-                    f"Entries: {len(log)}",
+                    f"[green]Audit log verified successfully[/green]\nEntries: {len(log)}",
                     title="Integrity Check",
                     border_style="green",
                 )
@@ -126,8 +125,7 @@ def audit_verify(logfile: str) -> None:
         else:
             console.print(
                 Panel(
-                    "[red]Audit log integrity check FAILED[/red]\n"
-                    "Possible tampering detected!",
+                    "[red]Audit log integrity check FAILED[/red]\nPossible tampering detected!",
                     title="Integrity Check",
                     border_style="red",
                 )
@@ -252,17 +250,21 @@ def model_validate(model_card: str) -> None:
         result = validator.validate(card)
 
         if result.status.value == "passed":
-            console.print(Panel(
-                f"[green]Model validation passed[/green]\n{result.message}",
-                title="Validation Result",
-                border_style="green",
-            ))
+            console.print(
+                Panel(
+                    f"[green]Model validation passed[/green]\n{result.message}",
+                    title="Validation Result",
+                    border_style="green",
+                )
+            )
         else:
-            console.print(Panel(
-                f"[red]Model validation failed[/red]\n{result.message}",
-                title="Validation Result",
-                border_style="red",
-            ))
+            console.print(
+                Panel(
+                    f"[red]Model validation failed[/red]\n{result.message}",
+                    title="Validation Result",
+                    border_style="red",
+                )
+            )
 
     except Exception as e:
         console.print(f"[red]Error: {e}[/red]")

@@ -203,11 +203,7 @@ class PluginLoader:
         for item_name in dir(module):
             item = getattr(module, item_name)
 
-            if (
-                isinstance(item, type)
-                and issubclass(item, Plugin)
-                and item is not Plugin
-            ):
+            if isinstance(item, type) and issubclass(item, Plugin) and item is not Plugin:
                 name = self.registry.register(item)
                 loaded.append(name)
 

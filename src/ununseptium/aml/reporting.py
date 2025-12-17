@@ -174,7 +174,9 @@ class SARReport(BaseModel):
         if self.suspicious_activity:
             xml_parts.append("  <SuspiciousActivity>")
             xml_parts.append(f"    <Type>{self.suspicious_activity.activity_type}</Type>")
-            xml_parts.append(f"    <Description>{self.suspicious_activity.description}</Description>")
+            xml_parts.append(
+                f"    <Description>{self.suspicious_activity.description}</Description>"
+            )
             xml_parts.append("  </SuspiciousActivity>")
 
         xml_parts.append(f"  <Narrative>{self.narrative}</Narrative>")

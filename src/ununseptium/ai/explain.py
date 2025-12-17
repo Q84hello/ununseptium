@@ -122,14 +122,16 @@ class ReasonCodeGenerator:
             severity: Severity level.
             contributing_features: Features involved.
         """
-        self._rules.append({
-            "code": code,
-            "description": description,
-            "condition": condition,
-            "category": category,
-            "severity": severity,
-            "contributing_features": contributing_features or [],
-        })
+        self._rules.append(
+            {
+                "code": code,
+                "description": description,
+                "condition": condition,
+                "category": category,
+                "severity": severity,
+                "contributing_features": contributing_features or [],
+            }
+        )
 
         if category not in self._categories:
             self._categories[category] = []

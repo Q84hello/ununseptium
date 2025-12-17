@@ -139,7 +139,9 @@ class HashChain:
 
             # Extract just the hash part (remove algorithm prefix)
             computed_digest = computed.split(":", 1)[1] if ":" in computed else computed
-            stored_digest = self._hashes[i].split(":", 1)[1] if ":" in self._hashes[i] else self._hashes[i]
+            stored_digest = (
+                self._hashes[i].split(":", 1)[1] if ":" in self._hashes[i] else self._hashes[i]
+            )
 
             if computed_digest != stored_digest:
                 return False, i

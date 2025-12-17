@@ -127,10 +127,12 @@ class NeuralODESolver:
                 super().__init__()
                 layers = [nn.Linear(dim, config.hidden_dim), nn.Tanh()]
                 for _ in range(config.n_layers - 1):
-                    layers.extend([
-                        nn.Linear(config.hidden_dim, config.hidden_dim),
-                        nn.Tanh(),
-                    ])
+                    layers.extend(
+                        [
+                            nn.Linear(config.hidden_dim, config.hidden_dim),
+                            nn.Tanh(),
+                        ]
+                    )
                 layers.append(nn.Linear(config.hidden_dim, dim))
                 self.net = nn.Sequential(*layers)
 

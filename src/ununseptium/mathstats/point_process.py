@@ -215,11 +215,13 @@ class HawkesProcess:
             return -ll
 
         # Initial guess
-        x0 = np.array([
-            self._params.mu,
-            self._params.alpha,
-            self._params.beta,
-        ])
+        x0 = np.array(
+            [
+                self._params.mu,
+                self._params.alpha,
+                self._params.beta,
+            ]
+        )
 
         # Optimize
         result = minimize(

@@ -163,11 +163,13 @@ class PINNTrainer:
             region: Function that returns True for boundary points.
             value: Boundary value or function.
         """
-        self._bc_data.append({
-            "type": bc_type,
-            "region": region,
-            "value": value,
-        })
+        self._bc_data.append(
+            {
+                "type": bc_type,
+                "region": region,
+                "value": value,
+            }
+        )
 
     def set_training_data(
         self,

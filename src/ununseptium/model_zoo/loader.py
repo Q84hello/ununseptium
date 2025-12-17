@@ -328,7 +328,11 @@ class ModelDownloader:
             parts = path.stem.rsplit("-", 1)
             if len(parts) >= 1:
                 # Reconstruct model_id
-                model_id = parts[0] if len(parts) == 1 else "-".join(parts[:-1]) + "-v" + parts[-1].lstrip("v")
+                model_id = (
+                    parts[0]
+                    if len(parts) == 1
+                    else "-".join(parts[:-1]) + "-v" + parts[-1].lstrip("v")
+                )
                 # Simplified: just use the stem
                 cached.append(path.stem.rsplit("-", 1)[0])
         return list(set(cached))

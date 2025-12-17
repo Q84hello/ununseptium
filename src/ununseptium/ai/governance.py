@@ -163,11 +163,13 @@ class ModelValidator:
                 "message": "Accuracy must be at least 0.7",
             },
             "has_metrics": {
-                "check": lambda m: any([
-                    m.accuracy is not None,
-                    m.auc_roc is not None,
-                    m.f1 is not None,
-                ]),
+                "check": lambda m: any(
+                    [
+                        m.accuracy is not None,
+                        m.auc_roc is not None,
+                        m.f1 is not None,
+                    ]
+                ),
                 "message": "Model must have at least one performance metric",
             },
         }

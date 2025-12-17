@@ -284,8 +284,7 @@ class TypologyDetector:
         suspicious = [
             txn
             for txn in transactions
-            if txn.transaction_type.value == "cash"
-            and lower_bound <= txn.amount < threshold
+            if txn.transaction_type.value == "cash" and lower_bound <= txn.amount < threshold
         ]
 
         if len(suspicious) < typology.min_transactions:
